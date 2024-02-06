@@ -1,0 +1,22 @@
+input{
+    text-align: center;
+    width: 90%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+textarea{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    padding: 10px;
+    width: 90%;
+   
+    border-radius: 5px;
+}
+ form div button{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    width: 90%;
+  
+    border-radius: 5px;
+}

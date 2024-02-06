@@ -1,0 +1,58 @@
+.form-container {
+    background-image: url("https://smmpackage.in/wp-content/uploads/2021/07/content-writing-1.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    /* padding: 20px; */
+    margin-bottom: -100px;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    color: #fff;
+  }
+  
+  .form-container form {
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .form-container div input {
+    width: 100%;
+  }
+  .form-container div textarea {
+    width: 100%;
+  }
+  
+  .form-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-container input,
+  .form-container textarea,
+  .form-container select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
