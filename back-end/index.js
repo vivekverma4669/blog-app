@@ -5,9 +5,10 @@ const UserModel = require('./models/User.module');
 const jwt = require('jsonwebtoken');
 const blogRouter = require('./Router/blog.Routes');
 const {autentication}= require('./middleware/authentication');
-
+const cors = require('cors');
 const app= express();
 app.use(express.json());
+app.use(cors());
 
 
 
@@ -17,12 +18,18 @@ app.get('/', (req,res)=>{
 
 app.post('/signup', async (req,res)=>{
     const { name , email , password} = req.body;
+
     try {
-        bcrypt.hash(password, 4, async function(err, hash) {
-   
+         const user= await UserModel.findOne({ email : email});
+         if(!user){
+
+           bcrypt.hash(password, 4, async function(err, hash) {
            await  UserModel.create({name : name , email : email , password : hash});
            res.send({ msg : ' sign up succusfull ' ,name : name , email : email , password : hash});
         });
+    }else{
+        res.send('already register')
+    }
            
     } catch (error) {
         console.error(error);

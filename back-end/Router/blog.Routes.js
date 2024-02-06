@@ -1,4 +1,4 @@
-const express= require('express');
+express= require('express');
 const blogRouter = express.Router();
 const BlogModel = require('../models/Blog.module');
 const UserModel = require('../models/User.module');
@@ -8,35 +8,76 @@ const jwt =require('jsonwebtoken');
 
 
 blogRouter.get('/', async (req,res)=>{
-    const blogs = await BlogModel.find();
+  const { type } = req.query;
+  let blogs;
+  try {
+      if (type) {
+          blogs = await BlogModel.find({ type });
+      } else {
+          blogs = await BlogModel.find();
+      }
+      res.send(blogs);
+    }
+    catch(error){
+      console.log(error);
+    }
+});
 
-    res.send( {"getting blogs" : blogs});
+blogRouter.get('/my', async (req, res) => {
+  const { type } = req.query;
+  const userId = req.headers.userId;
 
+  try {
+      let blogs;
+
+      if (type) {
+          blogs = await BlogModel.find({ type, user_id: userId });
+      } else {
+          blogs = await BlogModel.find({ user_id: userId });
+      }
+
+      res.send(blogs);
+  } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+  }
 });
 
 
-blogRouter.post('/create', async (req,res)=>{
-  const { title, content } = req.body;
+blogRouter.post('/create', async (req, res) => {
+  const { title, content, type , imageUrl} = req.body;
   const userId = req.headers.userId;
-
- console.log(userId) 
-console.log(req.headers);
   try {
-    // Find the user based on the provided email
     const user = await UserModel.findOne({ _id: userId });
-    jwt.verify()
     if (!user) {
-      return res.status(401).json({ msg: 'Unauthorized' }); // User not found
+      return res.status(401).json({ msg: 'Unauthorized' });
     }
 
-    // Create the blog with the user's email
-    const blog = await BlogModel.create({ title, content, auth_email: userEmail });
+    const blog = await BlogModel.create({ title, content, auth_email: user.email, user_id: user._id, type, imageUrl });
     res.status(201).json({ msg: 'Blog created successfully', blog });
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
     res.status(500).json({ msg: 'Server error' });
   }
 });
+
+
+blogRouter.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+      const Blog = await BlogModel.find({_id : id});
+      if (!Blog) {
+          return res.status(404).json({ message: 'Blog not found' });
+      }
+      res.json(Blog);
+  }
+  catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server error' });
+  }
+});
+
 
 
 
