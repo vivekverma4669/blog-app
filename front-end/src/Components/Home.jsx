@@ -91,22 +91,20 @@ const Home = () => {
 <div className="post container">
 
 {
-    blogs.length!=0? 
+    !loading? 
     (
     blogs.map((blog) => (
     
     <div className="post-box" key={blog._id} >    
       <Link to={`/blogDetail/${blog._id}`}><img src={blog.imageUrl} alt="" className="post-img"/></Link>
       <h2 className="category">{blog.type}</h2>
-      <h3 className="post-title">How to create the best UI with Figma</h3>
+      <h3 className="post-title">{blog.title}</h3>
       <span className="post-date">12 Feb 2022</span>
-      <p className="post-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, similique, rerum excepturi harum, vitae facilis corrupti vel modi debitis est perferendis aut quasi ea unde repudiandae iste architecto. Corporis, voluptates.</p>
+      <p className="post-description">{blog.content}</p>
       <div className="profile">
       <img src="https://pics.craiyon.com/2023-07-15/32c89c16131e490ab3536dc2e91bccb3.webp" alt="" className="profile-img"/>
-      <span className="profile-name">MKHB</span>
-      
+      <span className="profile-name">{blog.auth_email}</span>
       </div>
-      
     </div>
     
 
@@ -118,6 +116,11 @@ const Home = () => {
     )}
 
     
+      {
+  blogs.length===0?
+  <img src='https://cdn.dribbble.com/users/95510/screenshots/1694572/no-chat_gif.gif' />
+        : ""
+  } 
 
     
 

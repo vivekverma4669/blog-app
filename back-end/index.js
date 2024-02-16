@@ -48,8 +48,6 @@ app.post('/login', async (req, res) => {
         if (!user) {
             return res.status(400).json({ msg: 'User not found' });
         }
-
-
         bcrypt.compare(password, user.password, (err, result) => {
             if (err) {
                 throw err;

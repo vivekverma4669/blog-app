@@ -2,7 +2,7 @@
     background-image: url("https://smmpackage.in/wp-content/uploads/2021/07/content-writing-1.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    height: 630px;
     /* padding: 20px; */
     margin-bottom: -100px;
   }
@@ -56,3 +56,23 @@
     background-color: #0056b3;
   }
   
+  #update form{
+   
+     display: flex;
+     flex-direction: column;
+     
+  }
+  #update form *{
+   
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+  #update form input {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  #update form textarea{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+

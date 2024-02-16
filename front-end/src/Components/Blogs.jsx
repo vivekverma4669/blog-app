@@ -52,7 +52,7 @@ const Blogs = () => {
   return (
     <div>
       <div className="post-filter container" style={{ display: 'flex', gap: '10px', margin: 'auto', width: '300px', padding: '20px', fontSize: '20px', justifyContent: 'space-between', border: '2px solid black', borderEndStartRadius: '10px', borderEndEndRadius: '10px' }}>
-             <span className="filter-item" onClick={justfetch}  id={type===''? 'active-filter' : ''}>All</span>
+        <span className="filter-item" onClick={justfetch}  id={type===''? 'active-filter' : ''}>All</span>
         <span className="filter-item" onClick={onlytech}  id={type==='tech'? 'active-filter' : ''}>Tech</span>
         <span className="filter-item" onClick={onlyFood} id={type==='food'? 'active-filter' : ''}>Food</span>
         <span className="filter-item" onClick={onlyNews} id={type==='news'? 'active-filter' : ''}>News</span>
@@ -70,11 +70,11 @@ const Blogs = () => {
                 <Link to={`/blogDetail/${blog._id}`}><h3 className="post-title">{blog.title}</h3></Link>
                 <span className="post-date">2 Feb 2024</span>
                 <p className="post-description">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur, similique, rerum excepturi harum, vitae facilis corrupti vel modi debitis est perferendis aut quasi ea unde repudiandae iste architecto. Corporis, voluptates.
+               {blog.content}
                 </p>
                 <div className="profile">
                   <img src="https://pics.craiyon.com/2023-07-15/32c89c16131e490ab3536dc2e91bccb3.webp" alt="" className="profile-img" />
-                  <span className="profile-name">vivek</span>
+                  <span className="profile-name">{blog.auth_email}</span>
                 </div>
               </div>
             ))

@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const { setLoggedIn, setToken , setUser  } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading]= useState(false);
+  const [err, setErr]= useState(false);
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -18,25 +21,32 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
+
     e.preventDefault();
     try {
+
       const response = await axios.post('http://localhost:7000/login', formData);
       const { token } = response.data;
       const { email } = formData;
       console.log(response.data);
-      // console.log(formData);
+     
+
       setToken(token);
       setLoggedIn(true);
-      setUser({ email });
-      localStorage.setItem('userEmail', email);
+      console.log(email);
+      setUser( email );
+      localStorage.setItem('userEmail',email);
        
       alert('Login Succesfull✅  Redirect to home page ');
       navigate('/'); 
     }catch (error) {
+      setErr(true);
       console.error('Error logging in:', error);
     }
      
-     
+      setLoading(false);
+
   };
   
 
@@ -66,6 +76,10 @@ const Login = () => {
 
       <button type="submit" class="btn">Login</button>
 
+       {err? <p style={{color :'red'}}>Wrong email or password</p>
+       : ""
+
+       }
       <div class="register-link">
         <p>Dont have an account?  <NavLink to="/signup" style={{color :'silver'}}>Register now</NavLink> </p>
 

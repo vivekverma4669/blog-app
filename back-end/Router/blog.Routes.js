@@ -4,6 +4,7 @@ const BlogModel = require('../models/Blog.module');
 const UserModel = require('../models/User.module');
 blogRouter.use(express.json());
 const jwt =require('jsonwebtoken');
+const multer =require('multer');
 
 
 
@@ -45,18 +46,16 @@ blogRouter.get('/my', async (req, res) => {
 
 
 blogRouter.post('/create', async (req, res) => {
-  const { title, content, type , imageUrl} = req.body;
+  const { title, content, type ,imageUrl } = req.body;
   const userId = req.headers.userId;
   try {
     const user = await UserModel.findOne({ _id: userId });
     if (!user) {
       return res.status(401).json({ msg: 'Unauthorized' });
     }
-
     const blog = await BlogModel.create({ title, content, auth_email: user.email, user_id: user._id, type, imageUrl });
     res.status(201).json({ msg: 'Blog created successfully', blog });
-  }
-  catch (error) {
+  } catch (error) {
     console.error(error);
     res.status(500).json({ msg: 'Server error' });
   }

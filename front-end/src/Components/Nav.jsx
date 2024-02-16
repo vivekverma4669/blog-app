@@ -6,8 +6,12 @@ import { useContext } from "react";
 
  const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { setLoggedIn, setToken , user} = useContext(AuthContext);
-  console.log(typeof(user));
+  const { setLoggedIn ,setUser,  user} = useContext(AuthContext);
+  
+   const logout = ()=> {
+    setUser('');
+    localStorage.setItem('userEmail', '');
+   }
   return ( 
      
     <nav>
@@ -46,7 +50,7 @@ import { useContext } from "react";
       </ul>
 
        <div style={{marginRight: "30px"}}>
-     <h3><NavLink to="/login" style={{borderRadius :"5px", padding:'10px'}}> {user==''? 'Login' : user} </NavLink> </h3> 
+       <h3>  {user==''?   <NavLink to="/login" style={{borderRadius :"5px", padding:'10px'}}> Login</NavLink>  :  <p> {user}  <br/> <button onClick={logout}> log out </button> </p> }  </h3> 
     
       </div>
       

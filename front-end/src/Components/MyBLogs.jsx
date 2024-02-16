@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
-const Blogs = () => {
+const MyBlogs= () => {
 
   const { token } = useContext(AuthContext);
   const [blogs, setBlogs] = useState([]);
@@ -91,16 +91,17 @@ const Blogs = () => {
               blogs.map((blog) => (
                 
               <div key={blog._id}  style={{width : '100%', border :'2px solid black', display :'flex' , textAlign :'center' , borderRadius:'10px'}}>
-              <Link to={`/blogDetail/${blog._id}`}>  <img src={blog.imageUrl}  style={{height :'260px', width : '370px'}} /> </Link>
+              <Link to={`/blogDetail/${blog._id}`}>  <img src={blog.imageUrl}  style={{height :'100%', width : '390px'}} /> </Link>
               <div style={{display :'flex' , flexDirection :'column' , justifyContent :'space-between'}}>
-              <h3> Title :{blog.title}</h3>
+              <h2 style={{color:'teal'}}> {blog.title}</h2>
               <p>Type: {blog.type}</p>
               <p>{blog.content}</p>
-              <p>Author: {blog.auth_email}</p>
+              {/* <p>Author: {blog.auth_email}</p> */}
               
               <div align='right' >
+              <span>Author: {blog.auth_email}</span>
               <Link to={`/blogDetail/${blog._id}`} > <button  style={{margin :'10px'}} > Edit <img src='https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png' style={{width: "20px"}}/> </button> </Link>
-                <button style={{margin :'10px'}} onClick={()=>{handleDelete(blog._id)}}>Delete  <img src='https://cdn-icons-png.flaticon.com/512/3687/3687412.png' style={{width: "20px"}}/></button>
+              <button style={{margin :'10px'}} onClick={()=>{handleDelete(blog._id)}}>Delete  <img src='https://cdn-icons-png.flaticon.com/512/3687/3687412.png' style={{width: "20px"}}/></button>
               </div>
 
               </div>
@@ -131,4 +132,4 @@ const Blogs = () => {
   ) 
 };
 
-export default Blogs;
+export default MyBlogs;

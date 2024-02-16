@@ -10,10 +10,10 @@ const Footer =()=>{
             <h2>About Us</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus quisquam minus quo illo numquam vel incidunt pariatur hic commodi expedita tempora praesentium at iure fugiat ea, quam laborum aperiam veritatis.</p>
             <ul className="sci">
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
+                <li> <a href="#"> <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png"/></a></li>
+                <li><a href="https://www.linkedin.com/in/vivek-verma-594700228/"><img src="https://static-00.iconduck.com/assets.00/linkedin-icon-512x512-a7sf08js.png"/> </a></li>
+                <li><a href=""><img src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_White_512px.png"/></a></li>
+                <li><a href="#"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/whatsapp-white-icon.png"/></a></li>
             </ul>
         </div>
         <div className="sec quicklinks">

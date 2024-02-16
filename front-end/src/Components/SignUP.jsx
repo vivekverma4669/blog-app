@@ -3,7 +3,7 @@ import axios from 'axios';
 import './login.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,7 +19,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/signup', formData);
+      const response = await axios.post('http://localhost:7000/SignUp', formData);
       console.log(response.data);
       setFormData({ name: '', email: '', password: '' });
       alert('Account Created ✅  Login now ');
@@ -53,7 +53,7 @@ const Signup = () => {
           </div>
           <button type="submit" class="btn">Sign UP</button>
           {/* <div class="register-link">
-            <p>Dont have an account?  <NavLink to="/signup" style={{color :'silver'}}>Register now</NavLink> </p>
+            <p>Dont have an account?  <NavLink to="/SignUp" style={{color :'silver'}}>Register now</NavLink> </p>
           </div> */}
         </form> 
       </div>
@@ -61,4 +61,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;
