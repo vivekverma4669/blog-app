@@ -29,7 +29,7 @@ const SignUp = () => {
       console.error('Error signing up:', error);
     }
   };
-
+ 
   return (
     <div style={{backgroundImage: "url('https://steamuserimages-a.akamaihd.net/ugc/840332610283039051/A4997E43ADA6CD046F63AF9B25D358280DD493D7/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false')", backgroundRepeat: 'no-repeat', width: '100%', backgroundSize: 'cover', height: '800px', display: 'flex', marginBottom: '-140px' }}>
       <div class="wrapper" >
@@ -52,9 +52,10 @@ const SignUp = () => {
             {/* <a href="#">Forgot Password</a> */}
           </div>
           <button type="submit" class="btn">Sign UP</button>
-          {/* <div class="register-link">
-            <p>Dont have an account?  <NavLink to="/SignUp" style={{color :'silver'}}>Register now</NavLink> </p>
-          </div> */}
+          <div class="register-link">
+        <p>Already  have an account?  <NavLink to="/login" style={{color :'silver'}}>login now</NavLink> </p>
+          </div>
+
         </form> 
       </div>
     </div>

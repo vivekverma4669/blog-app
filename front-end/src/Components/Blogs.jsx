@@ -14,8 +14,8 @@ const Blogs = () => {
 
   const fetchBlogs = async (type) => {
     setLoading(true);
-    try {
-      const response = await axios.get(`http://localhost:7000/blogs?type=${type}`, {
+    try {  //https://grumpy-hare-sunbonnet.cyclic.app
+      const response = await axios.get(`https://grumpy-hare-sunbonnet.cyclic.app/blogs?type=${type}`, {
         headers: {
           Authorization: `Bearer ${token}`
         },

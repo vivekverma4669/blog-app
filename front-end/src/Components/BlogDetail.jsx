@@ -18,7 +18,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:7000/blogs/${id}`, {
+        const response = await axios.get(`https://grumpy-hare-sunbonnet.cyclic.app/blogs/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -39,7 +39,7 @@ const BlogDetail = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:7000/blogs/delete/${id}`, {
+      await axios.delete(`https://grumpy-hare-sunbonnet.cyclic.app/blogs/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -72,7 +72,7 @@ const BlogDetail = () => {
       const cloudinaryData = await cloudinaryResponse.json();
       const imageUrl = cloudinaryData.secure_url;
 
-      const response = await axios.post(`http://localhost:7000/blogs/update/${id}`, {
+      const response = await axios.post(`https://grumpy-hare-sunbonnet.cyclic.app/blogs/update/${id}`, {
         title: formData.title,
         content: formData.content,
         type: formData.type,

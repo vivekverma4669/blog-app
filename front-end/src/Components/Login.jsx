@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
     try {
 
-      const response = await axios.post('http://localhost:7000/login', formData);
+      const response = await axios.post('https://grumpy-hare-sunbonnet.cyclic.app/login', formData);
       const { token } = response.data;
       const { email } = formData;
       console.log(response.data);
@@ -82,7 +82,6 @@ const Login = () => {
        }
       <div class="register-link">
         <p>Dont have an account?  <NavLink to="/signup" style={{color :'silver'}}>Register now</NavLink> </p>
-
       </div>
 
     </form> 

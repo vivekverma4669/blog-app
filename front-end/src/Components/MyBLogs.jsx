@@ -12,7 +12,7 @@ const MyBlogs= () => {
   const fetchBlogs = async (type) => {
   setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:7000/blogs/my/?type=${type}`, {
+      const response = await axios.get(`https://grumpy-hare-sunbonnet.cyclic.app/blogs/my/?type=${type}`, {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -54,7 +54,7 @@ const MyBlogs= () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7000/blogs/delete/${id}`, {
+      await axios.delete(`https://grumpy-hare-sunbonnet.cyclic.app/blogs/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
