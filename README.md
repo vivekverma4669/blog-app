@@ -3,7 +3,7 @@
 <body>
 <h1 align='center'>Leo Bloggers</h1>
 
-  <h2> For Login  demo <h2/>
+    <h2> For quick Login  demo <h2/>
     <h3>email : vivek@gmail.com</h3>
     <h3>password : vivek4679</h3>
     
