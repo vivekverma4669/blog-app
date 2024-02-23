@@ -2,7 +2,13 @@
 </head>
 <body>
 <h1 align='center'>Leo Bloggers</h1>
+
+  <h2> For Login <h2/>
+    <h3>email : vivek@gmail.com</h3>
+    <h3>password : vivek4679</h3>
+    
 <p>Leo Bloggers is a full-stack blogging platform where users can create, read, update, and delete blog posts. It provides an intuitive interface for users to share their thoughts, ideas, and experiences with the world.</p>
+
 <h2>Features</h2>
 <ul>
   <li>User Authentication: Secure user authentication system with sign-up and login functionality.</li>
