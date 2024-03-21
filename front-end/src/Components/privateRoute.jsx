@@ -5,7 +5,7 @@ import { AuthContext } from './AuthContext';
 const PrivateRoute = ({ children}) => {
   const { loggedIn , user } = useContext(AuthContext);
  
-  if (!loggedIn) {
+  if (user=='') {
     alert("Login first");
     return <Navigate to="/login" />;
   }

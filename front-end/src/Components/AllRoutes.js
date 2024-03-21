@@ -12,11 +12,12 @@ import PrivateRoute from './privateRoute';
 const AllRoutes = () => {
   return (
     <Routes>
+    
+      <Route path="/" element={<Home/>} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/about" element={<About />} />
 
-      <Route path="/" element={<PrivateRoute>  <Home /></PrivateRoute>} />
       <Route path="/blogs" element={<PrivateRoute><Blogs /></PrivateRoute>} />
       <Route path="/myBlogs" element={<PrivateRoute><MyBlogs /></PrivateRoute>} />
       <Route path="/blogDetail/:id" element={<PrivateRoute><BlogDetail /></PrivateRoute>} />

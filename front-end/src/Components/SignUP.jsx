@@ -9,6 +9,7 @@ const SignUp = () => {
     email: '',
     password: ''
   });
+  const[loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,9 +18,10 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (e) => {
+    setFormData(true);
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:7000/SignUp', formData);
+      const response = await axios.post(`https://leo-bliggers.onrender.com/signUp`, formData);
       console.log(response.data);
       setFormData({ name: '', email: '', password: '' });
       alert('Account Created ✅  Login now ');
@@ -28,6 +30,7 @@ const SignUp = () => {
     catch (error) {
       console.error('Error signing up:', error);
     }
+    setLoading(false);
   };
  
   return (
@@ -51,7 +54,7 @@ const SignUp = () => {
             <label><input type="checkbox"/>Remember Me</label>
             {/* <a href="#">Forgot Password</a> */}
           </div>
-          <button type="submit" class="btn">Sign UP</button>
+          <button type="submit" class="btn">Sign UP {loading? ' ... 🔃' :  "" }</button>
           <div class="register-link">
         <p>Already  have an account?  <NavLink to="/login" style={{color :'silver'}}>login now</NavLink> </p>
           </div>

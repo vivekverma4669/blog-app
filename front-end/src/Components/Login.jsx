@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault();
     try {
 
-      const response = await axios.post('https://grumpy-hare-sunbonnet.cyclic.app/login', formData);
+      const response = await axios.post( `https://leo-bliggers.onrender.com/login`, formData);
       const { token } = response.data;
       const { email } = formData;
       console.log(response.data);
@@ -52,43 +52,43 @@ const Login = () => {
 
   return (
 
-  <div style={{backgroundImage : "url('https://media1.tenor.com/m/9n_ZqBC2y_wAAAAC/nature-japan.gif')" , backgroundRepeat : 'no-repeat', width :'100%',  backgroundSize: 'cover', height :'800px' , display: 'flex' , marginBottom:'-140px' }}>
+  <div style={{backgroundImage : "url('https://i.makeagif.com/media/2-24-2021/JT4fO9.gif')" , backgroundRepeat : 'no-repeat', width :'100%',  backgroundSize: 'cover', height :'800px' , display: 'flex' , marginBottom:'-140px' }}>
 
-  <div class="wrapper" >
+  <div className="wrapper" >
 
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h1>Login {loading? 'log in ...' :  "" }</h1>
 
-      <div class="input-box">
+      <div className="input-box">
         <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder='Email' required />
-        <i class='bx bxs-user'></i>
+        <i className='bx bxs-user'></i>
       </div>
 
-      <div class="input-box">
+      <div className="input-box">
         <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder='Password' required />
-        <i class='bx bxs-lock-alt' ></i>
+        <i className='bx bxs-lock-alt' ></i>
       </div>
 
-      <div class="remember-forgot">
+      <div className="remember-forgot">
         <label><input type="checkbox"/>Remember Me</label>
         <a href="#">Forgot Password</a>
       </div>
 
-      <button type="submit" class="btn">Login</button>
+      <button type="submit" className="btn">Login {loading? ' ... 🔃' :  "" }</button>
 
        {err? <p style={{color :'red'}}>Wrong email or password</p>
        : ""
 
        }
-      <div class="register-link">
+      <div className="register-link">
         <p>Dont have an account?  <NavLink to="/signup" style={{color :'silver'}}>Register now</NavLink> </p>
       </div>
 
     </form> 
   </div>
 
-         </div> 
-
+  </div> 
+ 
 
 
   );

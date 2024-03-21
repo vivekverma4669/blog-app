@@ -1,4 +1,4 @@
-const express= require('express');
+const express= require('express')
 const connection = require('./configs/db')
 const bcrypt = require('bcrypt');
 const UserModel = require('./models/User.module');
@@ -9,12 +9,25 @@ const cors = require('cors');
 const app= express();
 app.use(express.json());
 app.use(cors());
+require('dotenv').config();
 
+
+const main = async ()=>{
+    try {
+        await connection;
+        console.log('connected succesfully')
+    } catch (error) {
+        console.log(error);
+    }
+}
+main();
 
 
 app.get('/', (req,res)=>{
     res.send({'app runing u are on home page now ': req.headers});
 });
+
+
 
 app.post('/signup', async (req,res)=>{
     const { name , email , password} = req.body;
@@ -70,11 +83,35 @@ app.post('/login', async (req, res) => {
 
 
 
+// form home page
+
+const BlogModel = require('../back-end/models/Blog.module');
+app.get('/blog10', async (req, res) => {
+    const { type } = req.query;
+    let blogs;
+    try {
+        if (type) {
+            blogs = await BlogModel.find({ type }).limit(10); // Limiting to 10 blogs
+        } else {
+            blogs = await BlogModel.find().limit(10); // Limiting to 10 blogs
+        }
+        res.send(blogs);
+    } catch(error) {
+        console.log(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
+
 app.use(autentication);
 app.use('/blogs', blogRouter);
   
-app.listen(7000, async ()=>{
-  await connection;
-console.log('app runing at port 7000');
+const Port=process.env.PORT  || 7000;
+
+app.listen(Port, async ()=>{
+//   await connection;
+console.log(`app runing at port ${Port}`);
 })
 

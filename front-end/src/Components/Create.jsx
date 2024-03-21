@@ -44,7 +44,7 @@ const CreateBlog = () => {
       const imageUrl = cloudinaryData.secure_url;
            console.log(imageUrl);
       // Create blog post
-      const response = await axios.post('https://grumpy-hare-sunbonnet.cyclic.app/blogs/create', {
+      const response = await axios.post(`${window.location.origin}/blogs/create`, {
         title,
         content,
         type,
