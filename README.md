@@ -12,7 +12,9 @@
   <li>Delete Blogs: Remove unwanted blog posts from the platform.</li>
   <li>Responsive Design: The application is optimized for various screen sizes, providing a seamless user experience across devices.</li>
 </ul>
-<!--   <img src=""/> -->
+  <img src="https://i.ibb.co/0yvX92W/Screenshot-374.png" width="100%"/>
+  <img src="https://i.ibb.co/jfwKpMR/Screenshot-375.png" width="100%"/>
+  <img src="https://i.ibb.co/m83HXHn/Screenshot-376.png" width="100%"/>
 <h2>Technologies Used</h2>
 <ul>
   <li>Frontend: React.js, React Router, Axios</li>
