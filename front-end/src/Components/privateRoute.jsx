@@ -9,7 +9,8 @@ const PrivateRoute = ({ children}) => {
     alert("Login first");
     return <Navigate to="/login" />;
   }
-    return children;
+  
+  return children;
   
 };
 

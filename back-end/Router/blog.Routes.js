@@ -98,8 +98,6 @@ blogRouter.put('/update/:id', async (req, res) => {
   }
 });
 
-
-
 blogRouter.delete('/delete/:id', async (req, res) => {
   const { id } = req.params;
   try {

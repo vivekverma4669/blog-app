@@ -11,7 +11,7 @@ function App() {
     <AuthProvider>
     <div className="App">
 
-   <Navbar/> 
+    <Navbar/> 
      <AllRoutes/>      
     <Footer/>
 
@@ -22,4 +22,3 @@ function App() {
 }
 
 export default App;
-{/* home , login , sign up   done   */}

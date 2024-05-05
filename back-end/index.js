@@ -35,7 +35,6 @@ app.post('/signup', async (req,res)=>{
     try {
          const user= await UserModel.findOne({ email : email});
          if(!user){
-
            bcrypt.hash(password, 4, async function(err, hash) {
            await  UserModel.create({name : name , email : email , password : hash});
            res.send({ msg : ' sign up succusfull ' ,name : name , email : email , password : hash});
